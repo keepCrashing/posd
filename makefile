@@ -1,8 +1,8 @@
 INC_DIR = include
 
-all: hw1
+all: utSort
 
-hw1: main.o Shapes.o Media.o Sort.o
+utSort: main.o Shapes.o Media.o Sort.o
 ifeq (${OS}, Windows_NT)
 	g++ -o utSort main.o Shapes.o Media.o Sort.o -lgtest
 else
