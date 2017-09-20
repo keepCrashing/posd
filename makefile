@@ -1,12 +1,12 @@
 INC_DIR = include
 
-all: utSort
+all: hw1
 
-utSort: main.o Shapes.o Media.o Sort.o
+hw1: main.o Shapes.o Media.o Sort.o
 ifeq (${OS}, Windows_NT)
-	g++ -o utSort main.o Shapes.o Media.o Sort.o -lgtest
+	g++ -o hw1 main.o Shapes.o Media.o Sort.o -lgtest
 else
-	g++ -o utSort main.o Shapes.o Media.o Sort.o -lgtest -lpthread
+	g++ -o hw1 main.o Shapes.o Media.o Sort.o -lgtest -lpthread
 endif
 	
 main.o: main.cpp utSort.h
