@@ -1,9 +1,12 @@
 #ifndef UTTERM_H
 #define UTTERM_H
-
+#include "include/Atom.h"
+//#include "include/Variable.h"
+//#include "include/Variable.h"
 //test Number.value()
 TEST (Number,ctor) {
-
+	Atom tom("tom");
+	ASSERT_EQ("tom", tom._symbol);
 }
 //test Number.symbol()
 TEST (Number, symbol) {

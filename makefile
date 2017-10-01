@@ -2,7 +2,7 @@ INC_DIR = include
 
 all: hw2
 
-hw2: main.o 
+hw2: main.o
 ifeq (${OS}, Windows_NT)
 	g++ -o hw2 main.o -lgtest
 else
@@ -11,6 +11,7 @@ endif
 	
 main.o: main.cpp utTerm.h
 	g++ -std=gnu++0x -c main.cpp
+
 #Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
 #	g++ -std=gnu++0x -c Shapes.cpp
 #Media.o: $(INC_DIR)/Media.h Media.cpp
