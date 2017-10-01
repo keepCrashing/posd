@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Atom.h"
+#include "Number.h"
 using std::string;
 
 class Variable{
@@ -14,6 +15,14 @@ public:
     bool ret = _assignable;
     if(_assignable){
       _value = atom._symbol ;
+      _assignable = false;
+    }
+    return ret;
+  }
+  bool match(Number num){
+    bool ret = _assignable;
+    if(_assignable){
+      _value = num.symbol();
       _assignable = false;
     }
     return ret;

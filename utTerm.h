@@ -1,36 +1,49 @@
 #ifndef UTTERM_H
 #define UTTERM_H
 #include "include/Atom.h"
-//#include "include/Variable.h"
+#include "include/Number.h"
+#include "include/Variable.h"
 //#include "include/Variable.h"
 //test Number.value()
 TEST (Number,ctor) {
-	Atom tom("tom");
-	ASSERT_EQ("tom", tom._symbol);
+	Number _100(100);
+	ASSERT_EQ("100",_100.value());
+	//Number _100_4444(100.4445);
+	//ASSERT_EQ("100.444",_100_4444.value());
 }
 //test Number.symbol()
 TEST (Number, symbol) {
-
+	Number _10000(10000);
+	ASSERT_EQ("10000",_10000.symbol());
 }
 //?- 25=25.
 //true.
 TEST (Number, matchSuccess) {
+	Number num1(25);
+	Number num2(25);
+	ASSERT_TRUE(num1.match(num2));
 
 }
 //?- 25=0.
 //false.
 TEST (Number, matchFailureDiffValue) {
-
+	Number num1(25);
+	Number num2(0);
+	ASSERT_FALSE(num1.match(num2));
 }
 //?- 25=tom.
 //false.
 TEST (Number, matchFailureDiffConstant) {
-
+	Atom tom("tom");
+	Number num1(25);
+	ASSERT_FALSE(num1.match(tom));
 }
 //?- 25=X.
 //true.
 TEST (Number, matchSuccessToVar) {
-  
+  	Number num1(25);
+  	Variable X("X");
+  	ASSERT_TRUE(X.match(num1));
 }
 
 //?- tom=25.
