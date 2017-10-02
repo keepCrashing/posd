@@ -10,7 +10,7 @@ else
 endif
 
 main.o: main.cpp utTerm.h
-	g++ --std=c++11 -c main.cpp utTerm.h
+	g++ -std=c++11 -c main.cpp
 
 #Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
 #	g++ -std=gnu++0x -c Shapes.cpp
