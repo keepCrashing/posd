@@ -2,9 +2,9 @@
 #define VARIABLE_H
 class Atom;
 class Number;
-class Variable{
+class Var{
 public:
-    Variable(string s);
+    Var(string s);
     string value();
     bool match( Atom atom );
     bool match(Number num);

@@ -6,11 +6,11 @@
 using namespace::std;
 using std::string;
 
-Variable::Variable(string s):_symbol(s){}
+Var::Var(string s):_symbol(s){}
 
-string Variable::value(){ return _value; }
+string Var::value(){ return _value; }
 
-bool Variable::match( Atom atom ){
+bool Var::match( Atom atom ){
   bool ret = _assignable;
   if(_assignable){
     _value = atom._symbol ;
@@ -19,7 +19,7 @@ bool Variable::match( Atom atom ){
   return ret;
 }
 
-bool Variable::match(Number num){
+bool Var::match(Number num){
   bool ret = _assignable;
   if(_assignable){
     _value = num.value();
@@ -28,6 +28,6 @@ bool Variable::match(Number num){
   return ret;
 }
 
-bool Variable::getAssignable(){
+bool Var::getAssignable(){
     return _assignable;
 }

@@ -3,7 +3,7 @@
 #include <string>
 using std::string;
 class Number;
-class Variable;
+class Var;
 class Atom {
 public:
     Atom (string s);

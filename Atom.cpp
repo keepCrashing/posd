@@ -6,7 +6,7 @@ using namespace::std;
 Atom::Atom (string s):_symbol(s) {}
 bool Atom::operator ==(Atom a) {return _symbol == a._symbol;}
 bool Atom::match(Number num){return false;}
-bool Atom::match(Variable &vari){
+bool Atom::match(Var &vari){
     bool ret = vari.getAssignable();
     if(vari.getAssignable()==true || vari.value() == _symbol){
         ret = true;
