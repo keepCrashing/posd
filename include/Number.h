@@ -1,6 +1,7 @@
 #ifndef NUMBER_H
 #define NUMBER_H
 class Atom;
+class Variable;
 class Number{
 public:
 	Number(int d);
