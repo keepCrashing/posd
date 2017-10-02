@@ -50,6 +50,7 @@ TEST (Number, matchSuccessToVar) {
 //false.
 TEST (Atom, matchFailureDiffConstant) {
 
+
 }
 
 // ?- tom = X.
@@ -73,7 +74,7 @@ TEST (Atom, matchFailureToVarInstantedToDiffConstant) {
 // ?- X = 5.
 // X = 5.
 TEST (Var, matchSuccessToNumber) {
- 
+
 }
 
 // ?- X=25, X= 100.
