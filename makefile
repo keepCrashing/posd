@@ -2,11 +2,11 @@ INC_DIR = include
 
 all: hw2
 
-hw2: main.o Number.o Variable.o
+hw2: main.o Number.o Variable.o Atom.o
 ifeq (${OS}, Windows_NT)
-	g++ -o hw2 main.o Number.o Variable.o -lgtest
+	g++ -o hw2 main.o Number.o Variable.o Atom.o -lgtest
 else
-	g++ -o hw2 main.o Number.o Variable.o -lgtest -lpthread
+	g++ -o hw2 main.o Number.o Variable.o Atom.o -lgtest -lpthread
 endif
 
 main.o: main.cpp utTerm.h
@@ -15,6 +15,8 @@ Number.o: $(INC_DIR)/Number.h Number.cpp
 	g++ -std=gnu++0x -c Number.cpp
 Variable.o: $(INC_DIR)/Variable.h Variable.cpp
 	g++ -std=gnu++0x -c Variable.cpp
+Atom.o: $(INC_DIR)/Atom.h Atom.cpp
+	g++ -std=gnu++0x -c Atom.cpp
 #Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
 #	g++ -std=gnu++0x -c Shapes.cpp
 #Media.o: $(INC_DIR)/Media.h Media.cpp
