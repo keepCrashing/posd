@@ -14,7 +14,7 @@ public:
 		return _value == num._value;
 	}
 	bool match(Atom atom){
-		return _symbol == atom._symbol;
+		return false;
 	}
 private:
 	string _value;
