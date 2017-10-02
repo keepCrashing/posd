@@ -103,16 +103,27 @@ TEST (Var, matchFailureToTwoDiffNumbers) {
 // ?- X=tom, X= 25.
 // false.
 TEST (Var, matchSuccessToAtomThenFailureToNumber) {
-
+	Var X("X");
+	Atom tom("tom");
+	Number _25(25);
+	X.match(tom);
+	ASSERT_FALSE(X.match(_25));
 }
 //?- tom=X, 25=X.
 //false.
 TEST (Var, matchSuccessToAtomThenFailureToNumber2) {
-
+	Var X("X");
+	Atom tom("tom");
+	Number _25(25);
+	ASSERT_TRUE(tom.match(X));
+	ASSERT_FALSE(_25.match(X));
 }
 //?- X=tom, X=tom.
 //true.
 TEST(Var, reAssignTheSameAtom){
-
+	Var X("X");
+	Atom tom("tom");
+	ASSERT_TRUE(X.match(tom));
+	ASSERT_TRUE(X.match(tom));
 }
 #endif

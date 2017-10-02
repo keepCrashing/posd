@@ -11,6 +11,8 @@ public:
     bool match( Atom atom );
     bool match(Number num);
     bool getAssignable();
+    void setAssignable(bool assignable);
+    void setValue(string str);
 private:
     string _symbol;
     string _value;

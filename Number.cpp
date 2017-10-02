@@ -21,3 +21,12 @@ bool Number::match(Number num){
 bool Number::match(Atom atom){
     return false;
 }
+bool Number::match(Var &vari){
+    bool ret = vari.getAssignable();
+    if(vari.getAssignable()==true || vari.value() == _value){
+        ret = true;
+    }else{
+        ret = false;
+    }
+    return ret;
+}

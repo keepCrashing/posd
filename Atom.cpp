@@ -9,6 +9,8 @@ bool Atom::match(Number num){return false;}
 bool Atom::match(Var &vari){
     bool ret = vari.getAssignable();
     if(vari.getAssignable()==true || vari.value() == _symbol){
+        vari.setValue(_symbol);
+        vari.setAssignable(false);
         ret = true;
     }else{
         ret = false;

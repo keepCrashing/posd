@@ -11,12 +11,15 @@ Var::Var(string s):_symbol(s){}
 string Var::value(){ return _value; }
 
 bool Var::match( Atom atom ){
-  bool ret = _assignable;
-  if(_assignable){
-    _value = atom._symbol ;
-    _assignable = false;
-  }
-  return ret;
+    bool ret = _assignable;
+    if(_assignable == true || _value == atom._symbol){
+        _value = atom._symbol ;
+        _assignable = false;
+        ret = true;
+    }else{
+        ret = false;
+    }
+    return ret;
 }
 
 bool Var::match(Number num){
@@ -30,4 +33,10 @@ bool Var::match(Number num){
 
 bool Var::getAssignable(){
     return _assignable;
+}
+void Var::setAssignable(bool assignable){
+    _assignable = assignable;
+}
+void Var::setValue(string str){
+    _value = str;
 }
