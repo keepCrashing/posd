@@ -1,6 +1,6 @@
-#include "include/Atom.h"
-#include "include/Number.h"
-#include "include/Variable.h"
+#include "Atom.h"
+#include "Number.h"
+#include "Variable.h"
 #include <string>
 #include <sstream>
 //#include "Atom.h"

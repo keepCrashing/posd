@@ -1,8 +1,8 @@
 #ifndef UTTERM_H
 #define UTTERM_H
-#include "include/Atom.h"
-#include "include/Number.h"
-#include "include/Variable.h"
+#include "Atom.h"
+#include "Number.h"
+#include "Variable.h"
 //#include "include/Variable.h"
 //test Number.value()
 TEST (Number,ctor) {
@@ -49,38 +49,55 @@ TEST (Number, matchSuccessToVar) {
 //?- tom=25.
 //false.
 TEST (Atom, matchFailureDiffConstant) {
-
-
+	Atom tom("tom");
+	Number _25(25);
+	ASSERT_FALSE(tom.match(_25));
 }
 
 // ?- tom = X.
 // X = tom.
 TEST (Atom, matchSuccessToVar) {
-
+	Atom tom("tom");
+	Variable X("X");
+	ASSERT_TRUE(X.match(tom));
 }
 
 // ?- X=tom, tom=X.
 // X = tom.
 TEST (Atom, matchSuccessToVarInstantedToDiffConstant) {
-
+	Atom tom("tom");
+	Variable X("X");
+	X.match(tom);
+	//ASSERT_TRUE(X.match(tom));
+	ASSERT_TRUE(tom.match(X));
 }
 
 // ?- X=jerry, tom=X.
 // false.
 TEST (Atom, matchFailureToVarInstantedToDiffConstant) {
-
+	Atom tom("tom");
+	Atom jerry("jerry");
+	Variable X("X");
+	X.match(jerry);
+	ASSERT_FALSE(tom.match(X));
 }
 
 // ?- X = 5.
 // X = 5.
 TEST (Var, matchSuccessToNumber) {
-
+	Number _5(5);
+	Variable X("X");
+	ASSERT_TRUE(X.match(_5));
 }
 
 // ?- X=25, X= 100.
 // false.
 TEST (Var, matchFailureToTwoDiffNumbers) {
-
+	Number _25(25);
+	Number _100(100);
+	Variable X("X");
+	X.match(_25);
+	ASSERT_FALSE(X.match(_100));
 }
 
 // ?- X=tom, X= 25.

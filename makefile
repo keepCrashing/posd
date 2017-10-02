@@ -11,11 +11,11 @@ endif
 
 main.o: main.cpp utTerm.h
 	g++ -std=gnu++0x -c main.cpp
-Number.o: $(INC_DIR)/Number.h Number.cpp
+Number.o: Number.h Number.cpp
 	g++ -std=gnu++0x -c Number.cpp
-Variable.o: $(INC_DIR)/Variable.h Variable.cpp
+Variable.o: Variable.h Variable.cpp
 	g++ -std=gnu++0x -c Variable.cpp
-Atom.o: $(INC_DIR)/Atom.h Atom.cpp
+Atom.o: Atom.h Atom.cpp
 	g++ -std=gnu++0x -c Atom.cpp
 #Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
 #	g++ -std=gnu++0x -c Shapes.cpp
