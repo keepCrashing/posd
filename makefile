@@ -8,9 +8,9 @@ ifeq (${OS}, Windows_NT)
 else
 	g++ -o hw2 main.o -lgtest -lpthread
 endif
-	
+
 main.o: main.cpp utTerm.h
-	g++ -std=gnu++0x -c main.cpp
+	g++ --std=c++11 -c main.cpp utTerm.h
 
 #Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
 #	g++ -std=gnu++0x -c Shapes.cpp
@@ -18,7 +18,7 @@ main.o: main.cpp utTerm.h
 #	g++ -std=gnu++0x -c Media.cpp
 #Sort.o: $(INC_DIR)/Sort.h Sort.cpp
 #	g++ -std=gnu++0x -c Sort.cpp
-clean:	
+clean:
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
