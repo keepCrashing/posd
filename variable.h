@@ -18,5 +18,4 @@ private:
     string _value;
     bool _assignable = true;
 };
-
 #endif
