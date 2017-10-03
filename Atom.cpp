@@ -1,12 +1,12 @@
-#include "Atom.h"
-#include "Number.h"
-#include "Variable.h"
+#include "atom.h"
+#include "number.h"
+#include "variable.h"
 #include <iostream>
 using namespace::std;
 Atom::Atom (string s):_symbol(s) {}
 bool Atom::operator ==(Atom a) {return _symbol == a._symbol;}
 bool Atom::match(Number num){return false;}
-bool Atom::match(Var &vari){
+bool Atom::match(Variable &vari){
     bool ret = vari.getAssignable();
     if(vari.getAssignable()==true || vari.value() == _symbol){
         vari.setValue(_symbol);

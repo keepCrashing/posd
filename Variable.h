@@ -4,9 +4,9 @@
 using std::string;
 class Atom;
 class Number;
-class Var{
+class Variable{
 public:
-    Var(string s);
+    Variable(string s);
     string value();
     bool match( Atom atom );
     bool match(Number num);

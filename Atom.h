@@ -3,13 +3,13 @@
 #include <string>
 using std::string;
 class Number;
-class Var;
+class Variable;
 class Atom {
 public:
     Atom (string s);
     bool operator ==(Atom a);
     bool match(Number num);
-    bool match(Var &vari);
+    bool match(Variable &vari);
     string _symbol;
 };
 

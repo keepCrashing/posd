@@ -1,6 +1,6 @@
-#include "Atom.h"
-#include "Number.h"
-#include "Variable.h"
+#include "atom.h"
+#include "number.h"
+#include "variable.h"
 #include <string>
 #include <sstream>
 //#include "Atom.h"
@@ -21,7 +21,7 @@ bool Number::match(Number num){
 bool Number::match(Atom atom){
     return false;
 }
-bool Number::match(Var &vari){
+bool Number::match(Variable &vari){
     bool ret = vari.getAssignable();
     if(vari.getAssignable()==true || vari.value() == _value){
         ret = true;
