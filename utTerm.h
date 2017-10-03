@@ -43,7 +43,8 @@ TEST (Number, matchFailureDiffConstant) {
 TEST (Number, matchSuccessToVar) {
   	Number num1(25);
   	Variable X("X");
-  	ASSERT_TRUE(X.match(num1));
+  	ASSERT_TRUE(num1.match(X));
+		//EXPECT_EQ(string("25"), X.value());
 }
 
 //?- tom=25.

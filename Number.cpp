@@ -24,6 +24,7 @@ bool Number::match(Atom atom){
 bool Number::match(Variable &vari){
     bool ret = vari.getAssignable();
     if(vari.getAssignable()==true || vari.value() == _value){
+        vari.setValue(_value);
         ret = true;
     }else{
         ret = false;
