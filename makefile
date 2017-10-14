@@ -4,9 +4,9 @@ all: hw3
 
 hw3: main.o Number.o Variable.o Atom.o
 ifeq (${OS}, Windows_NT)
-	g++ -o hw2 main.o Number.o Variable.o Atom.o -lgtest
+	g++ -o hw3 main.o Number.o Variable.o Atom.o -lgtest
 else
-	g++ -o hw2 main.o Number.o Variable.o Atom.o -lgtest -lpthread
+	g++ -o hw3 main.o Number.o Variable.o Atom.o -lgtest -lpthread
 endif
 
 main.o: main.cpp utTerm.h
