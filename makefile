@@ -1,8 +1,8 @@
 INC_DIR = include
 
-all: hw2
+all: hw3
 
-hw2: main.o Number.o Variable.o Atom.o
+hw3: main.o Number.o Variable.o Atom.o
 ifeq (${OS}, Windows_NT)
 	g++ -o hw2 main.o Number.o Variable.o Atom.o -lgtest
 else
