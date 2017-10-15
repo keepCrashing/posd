@@ -1,6 +1,8 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 #include <string>
+#include <vector>
+using std::vector;
 using std::string;
 class Atom;
 class Number;
@@ -18,7 +20,9 @@ public:
     void setValue(string str);
     string _symbol;
 private:
+    vector<Variable*> _variable;
     string _value;
     bool _assignable = true;
+    static string temp;
 };
 #endif

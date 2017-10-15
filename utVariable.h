@@ -37,13 +37,23 @@ TEST(Variable , numE_to_varX){
 // ?- X=Y, X=1.
 // Y=1
 TEST (Variable, varY_to_varX_and_num1_to_varX) {
-
+    Variable X("X");
+    Variable Y("Y");
+    Number num1(1);
+    X.match(Y);
+    X.match(num1);
+    ASSERT_EQ( "1", Y.value());
 }
 
 // ?- X=Y, Y=1.
 // X=1
 TEST (Variable, varY_to_varX_and_num1_to_varY) {
-
+    Variable X("X");
+    Variable Y("Y");
+    Number num1(1);
+    X.match(Y);
+    X.match(num1);
+    ASSERT_EQ( "1", X.value());
 }
 
 // ?- X=X, X=1.
@@ -61,6 +71,13 @@ TEST (Variable, num1_to_varY_and_varX_match_varY) {
 // ?- X=Y, Y=Z, Z=1
 // X=1, Y=1, Z=1
 TEST (Variable, num1_to_varZ_to_varY_to_varX) {
+    Variable X("X");
+    Variable Y("Y");
+    Variable Z("Z");
+    Number num1(1);
+    X.match(Y);
+    Y.match(Z);
+    Z.match(num1);
 
 }
 
