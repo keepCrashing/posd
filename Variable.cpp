@@ -7,7 +7,7 @@
 using namespace::std;
 using std::string;
 
-Variable::Variable(string s):_symbol(s),_value(s){}
+Variable::Variable(string s):_symbol(s),_value(s){_variable.clear();}
 vector<Variable*> Variable::_variable;
 //Variable::Variable(double d):_symbol(s){}
 void Variable::setVariable(Variable *vari){
@@ -50,9 +50,8 @@ bool Variable::match(Term &term){
     else{
         for(int i=0; i<_variable.size(); i++){
             _variable[i]->setValue(term.value());
-            cout << _variable[i]->value() << " ";
+            cout << _variable[i]->symbol() << " ";
         }
-        if(_variable.size()!=0)_variable.clear();
         if(_assignable || _value == term.value()){
             _value = term.value();
             _assignable = false;
