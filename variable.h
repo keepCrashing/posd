@@ -7,6 +7,7 @@ class Number;
 class Variable:public Term{
 public:
     Variable(string s);
+    //Variable(double d);
     string value();
     string symbol()const;
     // bool match( Atom atom );

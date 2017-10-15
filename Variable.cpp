@@ -7,8 +7,8 @@
 using namespace::std;
 using std::string;
 
-Variable::Variable(string s):_symbol(s){}
-
+Variable::Variable(string s):_symbol(s),_value(s){}
+//Variable::Variable(double d):_symbol(s){}
 string Variable::value(){ return _value; }
 string Variable::symbol()const{return _symbol;}
 // bool Variable::match( Atom atom ){

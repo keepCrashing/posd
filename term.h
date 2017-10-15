@@ -5,7 +5,7 @@ using std::string;
 class Term{
 public:
     virtual string symbol()const = 0;
-    virtual string value()const{
+    virtual string value(){
         return symbol();
     }
     virtual bool match(Term &term){

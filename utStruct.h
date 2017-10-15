@@ -79,7 +79,11 @@ TEST(Struct, match5)
 // and #value() should also return "s(X)"
 TEST(Struct, var)
 {
-
+    Variable X("X");
+    std::vector<Term *> v = {&X};
+    Struct s(Atom("s"),v);
+    ASSERT_EQ("s(X)",s.symbol());
+    ASSERT_EQ("s(X)",s.value());
 }
 
 // Given there is Struct s contains a Variable X
@@ -88,7 +92,13 @@ TEST(Struct, var)
 // and #value() should also return "s(tom)"
 TEST(Struct, var_match_atom)
 {
-
+    Atom tom("tom");
+    Variable X("X");
+    X.match(tom);
+    std::vector<Term *> v = {&X};
+    Struct s(Atom("s"),v);
+    ASSERT_EQ("s(X)",s.symbol());
+    ASSERT_EQ("s(tom)",s.value());
 }
 
 // Given there are Struct s1 and Struct s2
@@ -131,4 +141,3 @@ TEST(Struct, nested_struct_and_multiVariable)
 {
 
 }
-

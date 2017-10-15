@@ -14,30 +14,29 @@ TEST (Number,ctor) {
 }
 //test Number.symbol()
 TEST (Number, symbol) {
-	// Number _10000(10000);
-	// ASSERT_EQ("10000",_10000.symbol());
+	Number _10000(10000);
+	ASSERT_EQ("10000",_10000.symbol());
 }
 //?- 25=25.
 //true.
 TEST (Number, matchSuccess) {
-	// Number num1(25);
-	// Number num2(25);
-	// ASSERT_TRUE(num1.match(num2));
-
+	Number num1(25);
+	Number num2(25);
+	ASSERT_TRUE(num1.match(num2));
 }
 //?- 25=0.
 //false.
 TEST (Number, matchFailureDiffValue) {
-	// Number num1(25);
-	// Number num2(0);
-	// ASSERT_FALSE(num1.match(num2));
+	Number num1(25);
+	Number num2(0);
+	ASSERT_FALSE(num1.match(num2));
 }
 //?- 25=tom.
 //false.
 TEST (Number, matchFailureDiffConstant) {
-	// Atom tom("tom");
-	// Number num1(25);
-	// ASSERT_FALSE(num1.match(tom));
+	Atom tom("tom");
+	Number num1(25);
+	ASSERT_FALSE(num1.match(tom));
 }
 //?- 25=X.
 //true.
@@ -45,7 +44,7 @@ TEST (Number, matchSuccessToVar) {
  //  	Number num1(25);
  //  	Variable X("X");
  //  	ASSERT_TRUE(num1.match(X));
-		//EXPECT_EQ(string("25"), X.value());
+	// EXPECT_EQ(string("25"), X.value());
 }
 
 //?- tom=25.
@@ -60,7 +59,7 @@ TEST (Atom, matchFailureDiffConstant) {
 // X = tom.
 TEST (Atom, matchSuccessToVar) {
 	// Atom tom("tom");
-	Variable X("X");
+	//Variable X("X");
 	// ASSERT_TRUE(X.match(tom));
 }
 
