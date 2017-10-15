@@ -109,6 +109,7 @@ TEST (Variable, num1_to_varZ_to_varX_and_varY_to_varX) {
 // And #value() of Y should return "s(X)"
 TEST (Variable, Struct1) {
 
+
 }
 
 // Give there is a Struct s contains Variable X
