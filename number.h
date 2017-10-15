@@ -6,7 +6,7 @@ class Number:public Term{
 public:
 	Number(double d);
 	string symbol()const;
-	//bool match(Term &term);
+	bool match(Term &term);
 	//string value();
 	//bool match(Number num);
 	//bool match(Atom atom);

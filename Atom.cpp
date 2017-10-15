@@ -5,6 +5,22 @@
 #include <iostream>
 using namespace::std;
 Atom::Atom (string s):_symbol(s) {}
+bool Atom::match(Term &term){
+    Variable *var = dynamic_cast<Variable *>(&term);
+    if(var){
+        bool ret = var->getAssignable();
+        if(var->getAssignable()==true || var->value() == _symbol){
+            var->setValue(_symbol);
+            var->setAssignable(false);
+            ret = true;
+        }else{
+            ret = false;
+        }
+        return ret;
+    }else{
+        return term.symbol() == symbol();
+    }
+}
 string Atom::symbol() const{
   return _symbol;
 }

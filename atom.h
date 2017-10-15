@@ -12,6 +12,7 @@ public:
     //bool operator ==(Atom a);
     //bool match(Number num);
     //bool match(Variable &vari);
+    bool match(Term &term);
     string symbol()const;
     string _symbol;
 };

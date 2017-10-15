@@ -41,90 +41,90 @@ TEST (Number, matchFailureDiffConstant) {
 //?- 25=X.
 //true.
 TEST (Number, matchSuccessToVar) {
- //  	Number num1(25);
- //  	Variable X("X");
- //  	ASSERT_TRUE(num1.match(X));
-	// EXPECT_EQ(string("25"), X.value());
+  	Number num1(25);
+  	Variable X("X");
+  	ASSERT_TRUE(num1.match(X));
+	EXPECT_EQ(string("25"), X.value());
 }
 
 //?- tom=25.
 //false.
 TEST (Atom, matchFailureDiffConstant) {
-	// Atom tom("tom");
-	// Number _25(25);
-	// ASSERT_FALSE(tom.match(_25));
+	Atom tom("tom");
+	Number _25(25);
+	ASSERT_FALSE(tom.match(_25));
 }
 
 // ?- tom = X.
 // X = tom.
 TEST (Atom, matchSuccessToVar) {
-	// Atom tom("tom");
-	//Variable X("X");
-	// ASSERT_TRUE(X.match(tom));
+	Atom tom("tom");
+	Variable X("X");
+	ASSERT_TRUE(X.match(tom));
 }
 
 // ?- X=tom, tom=X.
 // X = tom.
 TEST (Atom, matchSuccessToVarInstantedToDiffConstant) {
-	// Atom tom("tom");
-	// Variable X("X");
-	// X.match(tom);
-	// //ASSERT_TRUE(X.match(tom));
-	// ASSERT_TRUE(tom.match(X));
+	Atom tom("tom");
+	Variable X("X");
+	X.match(tom);
+	//ASSERT_TRUE(X.match(tom));
+	ASSERT_TRUE(tom.match(X));
 }
 
 // ?- X=jerry, tom=X.
 // false.
 TEST (Atom, matchFailureToVarInstantedToDiffConstant) {
-	// Atom tom("tom");
-	// Atom jerry("jerry");
-	// Variable X("X");
-	// X.match(jerry);
-	// ASSERT_FALSE(tom.match(X));
+	Atom tom("tom");
+	Atom jerry("jerry");
+	Variable X("X");
+	X.match(jerry);
+	ASSERT_FALSE(tom.match(X));
 }
 
 // ?- X = 5.
 // X = 5.
 TEST (Variable, matchSuccessToNumber) {
-	// Number _5(5);
-	// Variable X("X");
-	// ASSERT_TRUE(X.match(_5));
+	Number _5(5);
+	Variable X("X");
+	ASSERT_TRUE(X.match(_5));
 }
 
 // ?- X=25, X= 100.
 // false.
 TEST (Variable, matchFailureToTwoDiffNumbers) {
-	// Number _25(25);
-	// Number _100(100);
-	// Variable X("X");
-	// X.match(_25);
-	// ASSERT_FALSE(X.match(_100));
+	Number _25(25);
+	Number _100(100);
+	Variable X("X");
+	X.match(_25);
+	ASSERT_FALSE(X.match(_100));
 }
 
 // ?- X=tom, X= 25.
 // false.
 TEST (Variable, matchSuccessToAtomThenFailureToNumber) {
-	// Variable X("X");
-	// Atom tom("tom");
-	// Number _25(25);
-	// X.match(tom);
-	// ASSERT_FALSE(X.match(_25));
+	Variable X("X");
+	Atom tom("tom");
+	Number _25(25);
+	X.match(tom);
+	ASSERT_FALSE(X.match(_25));
 }
 //?- tom=X, 25=X.
 //false.
 TEST (Variable, matchSuccessToAtomThenFailureToNumber2) {
-	// Variable X("X");
-	// Atom tom("tom");
-	// Number _25(25);
-	// ASSERT_TRUE(tom.match(X));
-	// ASSERT_FALSE(_25.match(X));
+	Variable X("X");
+	Atom tom("tom");
+	Number _25(25);
+	ASSERT_TRUE(tom.match(X));
+	ASSERT_FALSE(_25.match(X));
 }
 //?- X=tom, X=tom.
 //true.
 TEST(Variable, reAssignTheSameAtom){
-	// Variable X("X");
-	// Atom tom("tom");
-	// ASSERT_TRUE(X.match(tom));
-	// ASSERT_TRUE(X.match(tom));
+	Variable X("X");
+	Atom tom("tom");
+	ASSERT_TRUE(X.match(tom));
+	ASSERT_TRUE(X.match(tom));
 }
 #endif
