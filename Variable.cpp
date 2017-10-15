@@ -52,7 +52,7 @@ bool Variable::match(Term &term){
             _variable[i]->setValue(term.value());
             cout << _variable[i]->value() << " ";
         }
-        _variable.clear();
+        if(_variable.size()!=0)_variable.clear();
         if(_assignable || _value == term.value()){
             _value = term.value();
             _assignable = false;
