@@ -39,6 +39,7 @@ bool Variable::match(Term &term){
     Variable *var = dynamic_cast<Variable *>(&term);
     bool ret = _assignable;
     if(var){
+        _value = term.value();
         _variable.push_back(var);
     }
     else{

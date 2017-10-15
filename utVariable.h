@@ -65,7 +65,12 @@ TEST (Variable, varX_match_varX_and_num1_to_varX) {
 // ?- Y=1, X=Y.
 // X=1
 TEST (Variable, num1_to_varY_and_varX_match_varY) {
-
+    Variable X("X");
+    Variable Y("Y");
+    Number num1(1);
+    Y.match(num1);
+    X.match(Y);
+    ASSERT_EQ( "1", X.value());
 }
 
 // ?- X=Y, Y=Z, Z=1
