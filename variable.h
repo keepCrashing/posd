@@ -18,9 +18,10 @@ public:
     bool getAssignable();
     void setAssignable(bool assignable);
     void setValue(string str);
+    void setVariable(Variable *vari);
     string _symbol;
 private:
-    vector<Variable*> _variable;
+    static vector<Variable*> _variable;
     string _value;
     bool _assignable = true;
     static string temp;
