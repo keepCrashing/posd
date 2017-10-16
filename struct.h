@@ -16,7 +16,9 @@ public:
   Term * args(int index) {
     return _args[index];
   }
-
+  std::vector<Term *> args() {
+    return _args;
+  }
   Atom const & name() {
     return _name;
   }
