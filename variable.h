@@ -21,9 +21,9 @@ public:
     void setVariable(Variable *vari);
     string _symbol;
 private:
-    static vector<Variable*> _variable;
+    vector<Variable*> _variable;
     string _value;
-    bool _assignable = true;
+    bool _assignable = true;//
     static string temp;
 };
 #endif
