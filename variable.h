@@ -2,6 +2,7 @@
 #define VARIABLE_H
 #include <string>
 #include <vector>
+#include "struct.h"
 using std::vector;
 using std::string;
 class Atom;
@@ -21,6 +22,9 @@ public:
     void setVariable(Variable *vari);
     string _symbol;
 private:
+    Struct *_struct;
+    bool _isStruct = false;
+    //vector<Variable*> _struVariable;
     vector<Variable*> _variable;
     string _value;
     bool _assignable = true;//
