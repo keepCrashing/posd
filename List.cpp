@@ -34,7 +34,7 @@ string List::value() const{
 bool List::match(Term & term){
     //List *pl = term.getList();
     List * pl = dynamic_cast<List *>(&term);
-    //Variable *pv = dynamic_cast<Variable *>(&term);
+    Variable *pv = dynamic_cast<Variable *>(&term);
     //Variable *pv  = term.getVariable();
     bool ret = true;
     if(pl){
@@ -47,6 +47,9 @@ bool List::match(Term & term){
                 }
             }
         }
+    }
+    else if(pv){
+        ret = pv->match(*this);
     }
     else{
         ret = false;
