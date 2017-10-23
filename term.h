@@ -5,6 +5,7 @@
 using std::string;
 using std::vector;
 class List;
+class Variable;
 class Term{
 public:
     virtual string symbol()const = 0;
@@ -15,6 +16,7 @@ public:
         return term.symbol() == symbol();
     }
     virtual List * getList() { return 0; }
+    virtual Variable * getVariable() { return 0; }
 };
 
 #endif
