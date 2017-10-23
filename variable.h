@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "struct.h"
+#include "list.h"
 using std::vector;
 using std::string;
 class Atom;
@@ -23,7 +24,9 @@ public:
     string _symbol;
 private:
     Struct *_struct;
+    List *_list;
     bool _isStruct = false;
+    bool _isList = false;
     //vector<Variable*> _struVariable;
     vector<Variable*> _variable;
     string _value;

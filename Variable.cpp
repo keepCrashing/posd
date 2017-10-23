@@ -17,6 +17,10 @@ string Variable::value(){
     if(_isStruct){
         return _struct->value();
     }
+    else if(_isList){
+        //cout << _list->value();
+        return _list->value();
+    }
     return _value;
 }
 string Variable::symbol()const{return _symbol;}
@@ -47,7 +51,15 @@ string Variable::symbol()const{return _symbol;}
 bool Variable::match(Term &term){
     Variable *var = dynamic_cast<Variable *>(&term);
     Struct *stru = dynamic_cast<Struct *>(&term);
+    List *list = dynamic_cast<List *>(&term);
     bool ret = _assignable;
+    if(list){
+        for(int i = 0; i < list->elements().size();i++){
+            if(this == list->elements()[i]){
+                return false;
+            }
+        }
+    }
     if(var){
 
         for(int i=0; i<_variable.size(); i++){
@@ -83,6 +95,10 @@ bool Variable::match(Term &term){
     if(stru){
         _struct = stru;
         _isStruct = true;
+    }
+    if(list){
+        _list = list;
+        _isList = true;
     }
     return ret;
 }
