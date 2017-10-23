@@ -236,7 +236,7 @@ TEST (List, emptyExecptionOfTail) {
     try{
         list.tail();
     }catch(std::string err){
-        EXPECT_EQ("Accessing head in an empty list",err);
+        EXPECT_EQ("Accessing tail in an empty list",err);
     }
 }
 
