@@ -97,11 +97,8 @@ Please use [the files that were used in course](https://github.com/yccheng66/pos
     3. Make sure your CI jobs are both passed before deadline.
 
   #### Marks
-
     You totally have 19 tests in your own, each one is 2 points.
     And TA's test also have 19 tests, each one is 3 points.
     The sum of this homework is 95 points.
-
   #### Deadline
-
     Friday Oct 27 2017 23:59:59
