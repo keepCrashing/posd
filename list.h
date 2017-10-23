@@ -2,10 +2,12 @@
 #define LIST_H
 
 #include "term.h"
+//#include "variable.h"
 #include <iostream>
 #include <vector>
-using std::vector;
 
+using std::vector;
+class Variable;
 class List : public Term {
 public:
   string symbol() const{
@@ -39,6 +41,7 @@ public:
   bool match(Term & term){
       //List *pl = term.getList();
       List * pl = dynamic_cast<List *>(&term);
+      //Variable *pv = dynamic_cast<Variable *>(&term);
       bool ret = true;
       if(pl){
           if(_elements.size() != pl->elements().size()){
@@ -50,6 +53,9 @@ public:
                   }
               }
           }
+      }
+      else{
+          ret = false;
       }
       return ret;
   }
