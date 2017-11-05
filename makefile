@@ -1,15 +1,15 @@
 INC_DIR = include
 
-all: hw4
+all: hw5
 
-hw4: main.o Term.o Number.o Variable.o Atom.o List.o
+hw5: main.o Term.o Number.o Variable.o Atom.o List.o
 ifeq (${OS}, Windows_NT)
-	g++ -o hw4 main.o Term.o Number.o Variable.o Atom.o List.o -lgtest
+	g++ -o hw5 main.o Term.o Number.o Variable.o Atom.o List.o -lgtest
 else
-	g++ -o hw4 main.o Term.o Number.o Variable.o Atom.o List.o -lgtest -lpthread
+	g++ -o hw5 main.o Term.o Number.o Variable.o Atom.o List.o -lgtest -lpthread
 endif
 
-main.o: main.cpp utTerm.h utStruct.h utVariable.h utList.h
+main.o: main.cpp utTerm.h utStruct.h utVariable.h utList.h utParser.h
 	g++ -std=gnu++0x -c main.cpp
 Term.o: term.h Term.cpp
 	g++ -std=gnu++0x -c Term.cpp
@@ -32,5 +32,5 @@ clean:
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
-	rm -f *.o hw4
+	rm -f *.o hw5
 endif
