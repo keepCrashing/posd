@@ -102,7 +102,6 @@ Please use [the files that were used in course](https://github.com/yccheng66/pos
     The sum of this homework is 95 points.
   #### Deadline
     Friday Oct 27 2017 23:59:59
-  # POSD2017F Homework
 
   ## Homework assignment 5
 
@@ -142,21 +141,6 @@ And from this week, we start to run [Mob programming](https://www.google.com.tw/
 
     }
     ```
-  
-  * Thu Nov 02 2017 17:30:46
-  
-    1. The date of each team has been changed because we skip the week of mid-exam.
-    
-    2. Some people cannot attend the activity on that week, so we adjust them to other week.
-        \
-        \
-          **Team #2 (11/18)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Team #3 (11/25)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Team #1 (11/04)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Team #9 (01/06)**
-        \
-        ![Imgur](https://i.imgur.com/nkO111j.png) ![Imgur](https://i.imgur.com/mLcnZIb.png) ![Imgur](https://i.imgur.com/ipW1Gvm.png) ![Imgur](https://i.imgur.com/vgN8huc.png)
-        
-    3. If you also cannot attend the activity on that week, please email to us before at least one week.
-    
-    4. ~~About the method: `arity()` and `args()`, sorry for vague explanation. Here is the detail of interface:~~
     
     
 #### Assignment requirement
