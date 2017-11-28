@@ -121,7 +121,20 @@ public:
               top = new Node(EQUALITY, nullptr, left, nullptr);
               term = createTerm();
               top->right = new Node(TERM, term, nullptr, nullptr);
+              //
+              Struct* ps = dynamic_cast<Struct *>(term);
+              if(ps){
+                  getVarInStruct(ps);
+                  for(int j = 0 ; j < _vars.size(); j++){
+                      for(int i = _terms.size()-1; i >= 0; i--){
+                          if(_operators[i] == ';')break;
+                          if(_vars[j]->symbol() == _terms[i]->symbol()){
+                              _vars[j]->match(*_terms[i]);
+                          }
+                      }
+                  }
 
+              }
 
               _terms.push_back(term);
 
