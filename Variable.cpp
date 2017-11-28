@@ -67,6 +67,7 @@ bool Variable::match(Term &term){
                 return true;
             }
         }
+        if(_assignable)//20171128
         _value = term.value();
         //_variable.push_back(this);
         _variable.push_back(var);
@@ -76,6 +77,7 @@ bool Variable::match(Term &term){
             _variable[i]->match(term);
             //cout <<i<<" "<< _variable[i]->symbol() << " " <<endl;
         }
+        return true;
     }
     else{
         if(_assignable || _value == term.value()){

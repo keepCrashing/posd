@@ -2,6 +2,7 @@
 #define STRUCT_H
 
 #include "atom.h"
+#include "variable.h"
 #include <vector>
 #include <string>
 
@@ -12,6 +13,7 @@ class Struct:public Term
 public:
   Struct(Atom const & name, std::vector<Term *>  args={}):_name(name), _args(args) {
   }
+  Struct * getStruct() { return this; }
   int arity(){
       return _args.size();
   }
