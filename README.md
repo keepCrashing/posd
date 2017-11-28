@@ -102,4 +102,63 @@ Please use [the files that were used in course](https://github.com/yccheng66/pos
     The sum of this homework is 95 points.
   #### Deadline
     Friday Oct 27 2017 23:59:59
+
+  ## Homework assignment 5
+
+Please use [the files that were used in course](https://github.com/yccheng66/posd2017f) and copy test header to your repository from this project.
+
+In this assignment, you are required to implement the more complete parser through each test. It will use the interface written in the course. And then, there are few tests will need some new methods of different term class, please follow the description of test, implement each method.
+
+And from this week, we start to run [Mob programming](https://www.google.com.tw/search?q=mob+programming). There will be one or two group in every week until the end of semester, they are required to show the demonstration which how they run the mob programming and how to solve the problem that in the assignment. It needs to do rehearse and prior planning with us. See below to get more detail.
+
+
+#### Update
+
+  * Fri Nov 03 2017 15:06:12
+
+    The method `args()`, it should return `Term *`, not `Term &`. please correct it in your assignment.
+
+    ```diff
+    class Struct {
+        public:
+          int arity(); // return the number of args (terms)
+    -     Term & args(int index); // according to index return the term
+    +     Term * args(int index); // according to index return the term
+      }
+    ```
+
+  * Fri Nov 03 2017 11:55:51
   
+    The description of test `TEST_F(ParserTest, ListAsStruct)` is wrong, please correct it in your assignment.
+
+    ```diff
+    // Then it should return a Struct which contains two terms.
+    // And #arity() of the Struct should be 2.
+    // And #symbol() of Struct should return ".(1, [])".
+    - // And the first term should be number: "1", the second term should be another Strcut: "[]".
+    + // And the first term should be number: "1", the second term should be another List: "[]".
+    TEST_F(ParserTest, ListAsStruct) {
+
+    }
+    ```
+    
+    
+#### Assignment requirement
+
+  1. Complete the parser with the description of each test
+
+  2. Implement the new method `arity()`, `args()` in `Struct`.
+  
+  3. Write the corresponding makefile to generate executable file which named hw5. Note that it is the executable name, not the test file name.
+  
+  4. Make sure your CI jobs are both passed before deadline.
+
+#### Marks
+
+  You totally have 20 tests in your own, each one is 2 points.
+  And TA's test also have 20 tests, each one is 3 points.
+  The sum of this homework is 90 points.
+
+#### Deadline
+
+  Thur Nov 9 2017 23:59:59
