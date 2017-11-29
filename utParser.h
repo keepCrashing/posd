@@ -208,11 +208,11 @@ TEST_F(ParserTest, OneMatching) {
 
   Node * et = parser.expressionTree();
   EXPECT_EQ(EQUALITY, et->payload);
-  //
+
   EXPECT_TRUE(et->evaluate());
   EXPECT_EQ("1", terms[0]->value());
 }
-//
+
 TEST_F(ParserTest, OneMatchingFalse) {
   Scanner scanner("1=2.");
   Parser parser(scanner);
@@ -225,7 +225,7 @@ TEST_F(ParserTest, OneMatchingFalse) {
   Node * et = parser.expressionTree();
   EXPECT_FALSE(et->evaluate());
 }
-//
+
 TEST_F(ParserTest, TwoTermsMatching) {
   Scanner scanner("X=1, Y=2.");
   Parser parser(scanner);
@@ -244,7 +244,7 @@ TEST_F(ParserTest, TwoTermsMatching) {
   EXPECT_EQ("1", terms[0]->value());
   EXPECT_EQ("2", terms[2]->value());
 }
-//
+
 TEST_F(ParserTest, ThreeTermsMatching) {
   Scanner scanner("X=1, Y=2, Z=3.");
   Parser parser(scanner);
@@ -304,9 +304,8 @@ TEST_F(ParserTest, TwoVariableMatching3) {
 
   EXPECT_EQ("1", terms[0]->value());
   EXPECT_EQ("1", terms[1]->value());
-  EXPECT_EQ("1", terms[2]->value());
 }
-//
+
 TEST_F(ParserTest, VarAStructOfVar) {
   Scanner scanner("X=s(Y).");
   Parser parser(scanner);
@@ -327,7 +326,7 @@ TEST_F(ParserTest, VarAStructOfVar) {
   EXPECT_EQ("s(Y)", et->right->term->symbol());
   EXPECT_TRUE(et->evaluate());
 }
-//
+
 TEST_F(ParserTest, TwoVariableMatching4) {
   Scanner scanner("X=s(Y), Y=1.");
   Parser parser(scanner);
@@ -357,7 +356,7 @@ TEST_F(ParserTest, TwoVariableMatching4) {
   EXPECT_EQ("Y", terms[2]->symbol());
   EXPECT_EQ("1", terms[2]->value());
 }
-//
+
 TEST_F(ParserTest, ConjTwoMatchingFailure) {
   Scanner scanner("X=1, X=2.");
   Parser parser(scanner);
@@ -380,7 +379,7 @@ TEST_F(ParserTest, ConjTwoMatchingFailure) {
 
   EXPECT_FALSE(et->evaluate());
 }
-//
+
 TEST_F(ParserTest, DisjTwoMatchingSuccess) {
   Scanner scanner("X=1; X=2.");
   Parser parser(scanner);
@@ -406,7 +405,7 @@ TEST_F(ParserTest, DisjTwoMatchingSuccess) {
   EXPECT_EQ("1", terms[0]->value());
   EXPECT_EQ("2", terms[2]->value());
 }
-//
+
 TEST_F(ParserTest, MatchingSuccess) {
   Scanner scanner("X=1; X=2, Y=s(s(X)).");
   Parser parser(scanner);
