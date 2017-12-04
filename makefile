@@ -1,15 +1,15 @@
 INC_DIR = include
 
-all: hw6
+all: hw7
 
-hw6: main.o Term.o Number.o Variable.o Atom.o List.o
+hw7: main.o Term.o Number.o Variable.o Atom.o List.o Struct.o
 ifeq (${OS}, Windows_NT)
-	g++ -o hw6 main.o Term.o Number.o Variable.o Atom.o List.o -lgtest
+	g++ -o hw7 main.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest
 else
-	g++ -o hw6 main.o Term.o Number.o Variable.o Atom.o List.o -lgtest -lpthread
+	g++ -o hw7 main.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest -lpthread
 endif
 
-main.o: main.cpp utTerm.h utStruct.h utVariable.h utList.h utParser.h
+main.o: main.cpp utTerm.h utStruct.h utVariable.h utList.h utParser.h utIterator.h
 	g++ -std=gnu++0x -c main.cpp
 Term.o: term.h Term.cpp
 	g++ -std=gnu++0x -c Term.cpp
@@ -21,6 +21,8 @@ Atom.o: atom.h Atom.cpp
 	g++ -std=gnu++0x -c Atom.cpp
 List.o: list.h List.cpp
 	g++ -std=gnu++0x -c List.cpp
+Struct.o: struct.h Struct.cpp
+	g++ -std=gnu++0x -c Struct.cpp
 
 #Shapes.o: $(INC_DIR)/Shapes.h Shapes.cpp
 #	g++ -std=gnu++0x -c Shapes.cpp
@@ -32,5 +34,5 @@ clean:
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
-	rm -f *.o hw6
+	rm -f *.o hw7
 endif

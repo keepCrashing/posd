@@ -7,6 +7,7 @@ using std::vector;
 class List;
 class Variable;
 class Struct;
+class Iterator;
 class Term{
 public:
     virtual string symbol()const = 0;
@@ -19,6 +20,7 @@ public:
     virtual List * getList() { return 0; }
     virtual Variable * getVariable() { return 0; }
     virtual Struct * getStruct() { return 0; }
+    virtual Iterator * createIterator();
 };
 
 #endif

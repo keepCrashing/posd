@@ -75,3 +75,7 @@ List * List::tail() const{
 vector<Term *> List::elements(){
     return _elements;
 }
+Term * List::args(int index) {
+  return _elements[index];
+}
+int List::arity() const {return _elements.size();}

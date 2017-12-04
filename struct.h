@@ -58,6 +58,8 @@ public:
     }
     return false;
   }
+  Iterator * createIterator();
+  Iterator * createDFSIterator();
 private:
   Atom _name;
   std::vector<Term *> _args;

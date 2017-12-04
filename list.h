@@ -19,7 +19,8 @@ public:
   Term * head() const;
   List * tail() const;
   vector<Term *> elements();
-
+  Term * args(int index);
+  int arity() const;
 private:
   vector<Term *> _elements;
 
