@@ -6,3 +6,6 @@ Iterator * Struct::createIterator(){
 Iterator * Struct::createDFSIterator(){
     return new DFSIterator(this);
 }
+Iterator * Struct::createBFSIterator(){
+    return new BFSIterator(this);
+}

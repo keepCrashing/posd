@@ -60,6 +60,7 @@ public:
   }
   Iterator * createIterator();
   Iterator * createDFSIterator();
+  Iterator * createBFSIterator();
 private:
   Atom _name;
   std::vector<Term *> _args;

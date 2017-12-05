@@ -21,6 +21,9 @@ public:
   vector<Term *> elements();
   Term * args(int index);
   int arity() const;
+  Iterator * createIterator();
+  Iterator * createDFSIterator();
+  Iterator * createBFSIterator();
 private:
   vector<Term *> _elements;
 

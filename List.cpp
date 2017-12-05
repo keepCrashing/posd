@@ -1,5 +1,6 @@
 #include "list.h"
 #include "variable.h"
+#include "iterator.h"
 List::List (): _elements() {}
 List::List (vector<Term *> const & elements):_elements(elements){}
 //
@@ -79,3 +80,12 @@ Term * List::args(int index) {
   return _elements[index];
 }
 int List::arity() const {return _elements.size();}
+Iterator * List::createIterator(){
+    return new ListIterator(this);
+}
+Iterator * List::createDFSIterator(){
+    return new DFSIterator(this);
+}
+Iterator * List::createBFSIterator(){
+    return new BFSIterator(this);
+}
