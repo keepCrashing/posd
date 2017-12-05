@@ -80,12 +80,12 @@ Term * List::args(int index) {
   return _elements[index];
 }
 int List::arity() const {return _elements.size();}
-Iterator * List::createIterator(){
-    return new ListIterator(this);
+Iterator<Term*> * List::createIterator(){
+    return new ListIterator<Term*>(this);
 }
-Iterator * List::createDFSIterator(){
-    return new DFSIterator(this);
+Iterator<Term*> * List::createDFSIterator(){
+    return new DFSIterator<Term*>(this);
 }
-Iterator * List::createBFSIterator(){
-    return new BFSIterator(this);
+Iterator<Term*> * List::createBFSIterator(){
+    return new BFSIterator<Term*>(this);
 }

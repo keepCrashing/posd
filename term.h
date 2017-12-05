@@ -7,6 +7,7 @@ using std::vector;
 class List;
 class Variable;
 class Struct;
+template <class T>
 class Iterator;
 class Term{
 public:
@@ -20,7 +21,7 @@ public:
     virtual List * getList() { return 0; }
     virtual Variable * getVariable() { return 0; }
     virtual Struct * getStruct() { return 0; }
-    virtual Iterator * createIterator();
+    virtual Iterator<Term*> * createIterator();
 };
 
 #endif
