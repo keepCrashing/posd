@@ -281,6 +281,53 @@ TEST(iterator, BFSIterator_Struct_nested2) {
     itBFS->next();
     ASSERT_TRUE(itBFS->isDone());
 }
+TEST(iterator, BFSIterator_Struct_nested3) {
+    Number one(1);
+    Variable X("X");
+    Variable Y("Y");
+    Variable Z("Z");
+    Number two(2);
+    Number three(3);
+    Number four(4);
+    List l({ &four});
+    Struct u(Atom("u"),{&three, &Z});
+    Struct t(Atom("t"), { &X, &two, &u});
+    Struct s(Atom("s"), { &one, &t, &Y, &l });
+
+    Iterator<Term*> *itBFS = s.createBFSIterator();
+    itBFS->first();
+    ASSERT_EQ("1", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("t(X, 2, u(3, Z))", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("Y", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("[4]", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("X", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("2", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("u(3, Z)", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("4", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("3", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("Z", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_TRUE(itBFS->isDone());
+}
 TEST(iterator, BFSIterator_List) {
     Variable X("X");
     Number two(2);
@@ -317,6 +364,41 @@ TEST(iterator, BFSIterator_List_nested) {
     ASSERT_FALSE(itBFS->isDone());
     itBFS->next();
     ASSERT_EQ("2", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_TRUE(itBFS->isDone());
+}
+TEST(iterator, BFSIterator_List_nested2) {
+    Number one(1);
+    Variable X("X");
+    Variable Y("Y");
+    Variable Z("Z");
+    Number two(2);
+    Number three(3);
+    Struct t(Atom("t"), { &X, &two });
+    Struct u(Atom("u"),{&three});
+    List l({ &one, &t, &Y, &u });
+    Iterator<Term*> *itBFS = l.createBFSIterator();
+    itBFS->first();
+    ASSERT_EQ("1", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("t(X, 2)", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("Y", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("u(3)", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("X", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("2", itBFS->currentItem()->symbol());
+    ASSERT_FALSE(itBFS->isDone());
+    itBFS->next();
+    ASSERT_EQ("3", itBFS->currentItem()->symbol());
     ASSERT_FALSE(itBFS->isDone());
     itBFS->next();
     ASSERT_TRUE(itBFS->isDone());
