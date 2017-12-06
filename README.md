@@ -252,4 +252,3 @@ first() in our example should return bigmac not combo1.
 
   Fri Dec 8 2017 23:59:59
 
-  
