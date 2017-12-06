@@ -178,18 +178,6 @@ And for the coming Saturday(11/25), there will be two teams need to attend the m
   2. [Add the description for the parser method](https://github.com/posd2017f/homework/blob/master/README.md#assignment-requirement).
 
 
-### Mob programming team on 11/25
-|   Team#2  |   Team#3  |
-| --------- | --------- |
-| 103590028 | 103590006 |
-| 105598043 | 104598046 |
-| 105598062 | 105598060 |
-| 106598006 | 106598004 |
-| 106598016 | 106598011 |
-| 106598027 | 106598045 | 
-| 106598029 | 106598042 |
-| 106598041 | 106598035 |
-
 #### Assignment requirement
 
   1. Complete the parser through the test. 
@@ -237,18 +225,6 @@ For mob programming, there are some changes of schedule and its activity. We add
 first() in our example should return bigmac not combo1.
 
 ![Imgur](https://i.imgur.com/v1GyjBX.png)
-
-### Mob programming team on 12/02
-|   Team#4 (at 1622)  |   Team#5 (at 1321) |
-| --------- | --------- |
-| 103590452 | 103590026 |
-| ~~105598072~~ | 105598046 |
-| 106598034 | 105598059 |
-| 106598040 | 106598007 |
-| 106598013 | 106598014 |
-| 106598056 | 106598043 | 
-| 106598064 | 106598052 |
-| 106598067 | 106598059 |
 
 #### Assignment requirement
 
