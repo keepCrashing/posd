@@ -64,7 +64,7 @@ public:
       //     if(pv->getAssignable() == false)
       //       return true;
       // }
-      std::cout << _left->symbol()<<" "<<_left->value()<<" "<< _right->symbol()<<" "<< _right->value() << std::endl;
+      //std::cout << _left->symbol()<<" "<<_left->value()<<" "<< _right->symbol()<<" "<< _right->value() << std::endl;
       //bool ret = _left->match(*_right);
       return _left->match(*_right);
   }
