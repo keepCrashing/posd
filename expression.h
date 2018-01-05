@@ -213,19 +213,19 @@ TEST(Shell, conjunctionMatching_falseAndfalse) {
     FAIL() << msg;
   }
 }
-// //
-// TEST(Shell, conjunctionMatching_duplicateExp) {
-//   Scanner s("Y=1, X=2, X=2.");
-//   Parser p(s);
-//   try {
-//     p.buildExpression();
-//     Shell shell(p.getExpressionTree());
-//     string result = shell.exec();
-//     ASSERT_EQ("Y = 1, X = 2.", result);
-//   } catch (std::string &msg) {
-//     FAIL() << msg;
-//   }
-// }
+//
+TEST(Shell, conjunctionMatching_duplicateExp) {
+  Scanner s("Y=1, X=2, X=2.");
+  Parser p(s);
+  try {
+    p.buildExpression();
+    Shell shell(p.getExpressionTree());
+    string result = shell.exec();
+    ASSERT_EQ("Y = 1, X = 2.", result);
+  } catch (std::string &msg) {
+    FAIL() << msg;
+  }
+}
 
 TEST(Shell, disjunctionMatching1) {
   Scanner s("X=1; X=2.");

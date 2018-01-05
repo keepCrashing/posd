@@ -3,6 +3,7 @@
 
 #include "term.h"
 #include "global.h"
+#include <string.h>
 class Exp {
 public:
   virtual bool evaluate() = 0;
@@ -62,12 +63,9 @@ public:
       globalTerms.push_back(_left);
       globalTerms.push_back(_right);
       Variable* pv = dynamic_cast<Variable*>(_left);
-      // if(pv){
-      //     if(pv->getAssignable() == false)
-      //       return true;
-      // }
       //std::cout << _left->symbol()<<" "<<_left->value()<<" "<< _right->symbol()<<" "<< _right->value() << std::endl;
       //bool ret = _left->match(*_right);
+
       return _left->match(*_right);
   }
   string getResult()
@@ -81,20 +79,6 @@ public:
       }else{
           return "";
       }
-      // evaluate();
-      // string ret = "";
-      // if(_left->symbol() == _right->symbol()){
-      //     ret = "true";
-      // }
-      // else if(_left->match(*_right) == false || _left->symbol() == ""){
-      //     ret = "";
-      // }
-      // else{
-      //     _left->match(*_right);
-      //   ret = _left->symbol() + " = " + _right->value();
-      // }
-      //
-      // return ret;
   }
 private:
   Term* _left;
@@ -110,6 +94,11 @@ public:
   bool evaluate() {
     return (_left->evaluate() && _right->evaluate());
   }
+  int findString(string str1, string str2){
+     int found;
+     found=str1.find(str2);
+     return found;
+  }
   string getResult()
   {
 
@@ -120,8 +109,11 @@ public:
           }
           else if(tmpL == tmpR){
               return tmpL;
-          }else if(tmpL == "" ){
-              //std::cout<<"QQQQQQQQQQQQQQQ"<<std::endl;
+          }
+          else if(tmpR == tmpL){
+              return tmpR;
+          }
+          else if(tmpL == "" ){
               return "";
           }else if(tmpR == ""){
               return "";
@@ -131,33 +123,13 @@ public:
           }
           else if(tmpR == "true"){
               return tmpL;
+          }else if(findString(tmpL,tmpR) != -1){
+              return tmpL;
           }
           return tmpL+", "+ tmpR;
       }else{
           return "";
       }
-      // if(evaluate() == true){
-      //     if (_left->getResult() == "true" && _right->getResult() == "true"){
-      //         return "true";
-      //     }
-      //     else if(_left->getResult() == _right->getResult()){
-      //         return _left->getResult();
-      //     }else if(_left->getResult() == "" ){
-      //         //std::cout<<"QQQQQQQQQQQQQQQ"<<std::endl;
-      //         return "";
-      //     }else if(_right->getResult() == ""){
-      //         return "";
-      //     }
-      //     else if(_left->getResult() == "true"){
-      //         return _right->getResult();
-      //     }
-      //     else if(_right->getResult() == "true"){
-      //         return _left->getResult();
-      //     }
-      //     return _left->getResult()+", "+ _right->getResult();
-      // }else{
-      //     return "";
-      // }
   }
 private:
   Exp * _left;
