@@ -18,7 +18,7 @@ string List::symbol() const{
     }
     return ret;
 }
-string List::value() const{
+string List::value() {
     string ret = "";
     if(_elements.size() == 0){
         ret = "[]";

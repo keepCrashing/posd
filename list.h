@@ -10,7 +10,7 @@ using std::vector;
 class List : public Term {
 public:
   string symbol() const;
-  string value() const;
+  string value() ;
   bool match(Term & term);
 
 public:

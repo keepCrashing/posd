@@ -70,18 +70,18 @@ TEST(Shell, varMatchItself) {
   }
 }
 
-// TEST(Shell, varMachingListThatIncludeVar) {
-//   Scanner s("X=[Y,tom], Y=marry.");
-//   Parser p(s);
-//   try {
-//     p.buildExpression();
-//     Shell shell(p.getExpressionTree());
-//     string result = shell.exec();
-//     ASSERT_EQ("X = [marry, tom], Y = marry.", result);
-//   } catch (std::string &msg) {
-//     FAIL() << msg;
-//   }
-// }
+TEST(Shell, varMachingListThatIncludeVar) {
+  Scanner s("X=[Y,tom], Y=marry.");
+  Parser p(s);
+  try {
+    p.buildExpression();
+    Shell shell(p.getExpressionTree());
+    string result = shell.exec();
+    ASSERT_EQ("X = [marry, tom], Y = marry.", result);
+  } catch (std::string &msg) {
+    FAIL() << msg;
+  }
+}
 
 TEST(Shell, varMachingStructThatIncludeVar) {
   Scanner s("X=s(Y,marry), Y=tom.");

@@ -37,7 +37,9 @@ public:
                      _left->match(*(pl->args(j)));
                      //pl->args(j)->match(*_left);
                      //std::cout << _left->symbol()<<" "<<_left->value()<<" "<< _right->symbol()<<" "<< _right->value() << std::endl;
+
                  }
+                 //std::cout << pl->value() << std::endl;
               }
           }
           Struct* ps = dynamic_cast<Struct*>(globalTerms[i]);
