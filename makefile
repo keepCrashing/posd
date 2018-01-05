@@ -1,15 +1,22 @@
 INC_DIR = include
+all: shell hw8
 
-all: hw7
 
-hw7: main.o Term.o Number.o Variable.o Atom.o List.o Struct.o
+hw8: main.o Term.o Number.o Variable.o Atom.o List.o Struct.o
 ifeq (${OS}, Windows_NT)
-	g++ -o hw7 main.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest
+	g++ -o hw8 main.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest
 else
-	g++ -o hw7 main.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest -lpthread
+	g++ -o hw8 main.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest -lpthread
 endif
-
-main.o: main.cpp utTerm.h utStruct.h utVariable.h utList.h utParser.h utIterator.h
+shell: shell.o Term.o Number.o Variable.o Atom.o List.o Struct.o
+ifeq (${OS}, Windows_NT)
+	g++ -o shell shell.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest
+else
+	g++ -o shell shell.o Term.o Number.o Variable.o Atom.o List.o Struct.o -lgtest -lpthread
+endif
+shell.o: shell.cpp utTerm.h utStruct.h utVariable.h utList.h utParser.h utIterator.h expression.h exception.h
+	g++ -std=gnu++0x -c shell.cpp
+main.o: main.cpp utTerm.h utStruct.h utVariable.h utList.h utParser.h utIterator.h expression.h exception.h
 	g++ -std=gnu++0x -c main.cpp
 Term.o: term.h Term.cpp
 	g++ -std=gnu++0x -c Term.cpp
@@ -34,5 +41,5 @@ clean:
 ifeq (${OS}, Windows_NT)
 	del *.o *.exe
 else
-	rm -f *.o hw7
+	rm -f *.o hw8 shell
 endif

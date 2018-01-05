@@ -19,12 +19,14 @@ const int VAR = 259;
 
 #include <vector>
 using std::vector;
-
+#include "term.h"
+vector<Term*> globalTerms;
 vector<pair<string, int>> symtable;
 
 bool isSpecialCh(char c) {
   return c == '+'
       // || c == '=' // ... the matching operator
+         || c == '_'
          || c == '-'
          || c == '*'
          || c == '/'

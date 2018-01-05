@@ -4,7 +4,9 @@
 //#include "utVariable.h"
 //#include "utList.h"
 //#include "utParser.h"
-#include "utIterator.h"
+//#include "utIterator.h"
+#include "expression.h"
+#include "exception.h"
 int main( int argc , char **argv )
 {
     testing :: InitGoogleTest( &argc , argv ) ;

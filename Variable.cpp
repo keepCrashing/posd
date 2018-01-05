@@ -95,10 +95,12 @@ bool Variable::match(Term &term){
         }
     }
     if(stru){
+        setAssignable(true);//
         _struct = stru;
         _isStruct = true;
     }
     if(list){
+        setAssignable(true);//
         _list = list;
         _isList = true;
     }
